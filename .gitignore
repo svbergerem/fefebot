@@ -1,5 +1,7 @@
 diaspy
 config.py
+fefe.db
+log.txt
 
 *.py[cod]
 
