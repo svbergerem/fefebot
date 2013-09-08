@@ -1,3 +1,6 @@
+diaspy
+config.py
+
 *.py[cod]
 
 # C extensions
