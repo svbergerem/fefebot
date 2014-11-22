@@ -23,7 +23,7 @@ guid=[]
 
 for item in xmltree.getElementsByTagName('item'):
   link=item.getElementsByTagName('guid')[0].firstChild.data
-  fefe_id=link[24:31]
+  fefe_id=link[25:31]
 
   html=item.getElementsByTagName('description')[0].childNodes[1].data
   html=html2md(html)   
