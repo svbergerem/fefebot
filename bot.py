@@ -1,4 +1,4 @@
-#! /usr/bin/env python3.2
+#! /usr/bin/env python3
 
 import sqlite3
 from time import gmtime, strftime
