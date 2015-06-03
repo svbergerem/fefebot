@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.2
 # -*- coding: utf-8 -*-
 
 import re
@@ -90,7 +90,7 @@ def add_tags(text):
     tags+="#bnd "
 
   # CCC
-  if re.search(" CCC",text):
+  if re.search("CCC",text,re.I):
     tags+="#ccc "
 
   if re.search("25c3",text,re.I):
