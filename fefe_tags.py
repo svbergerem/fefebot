@@ -19,8 +19,8 @@ def add_tags(text):
   if re.search("Bei uns ist Kernkraft sicher",text,re.I) or re.search("Bei uns ist die Kernkraft sicher",text,re.I) or re.search("Bei uns ist Atomkraft sicher",text,re.I) or re.search("Bei uns ist die Atomkraft sicher",text,re.I):
     tags+="#beiunsistKernkraftSICHER "
 
-  if re.search("Verräterpartei",text,re.I):
-    tags+="#verräterpartei "
+  if re.search("Verräterpartei",text,re.I) or re.search("SPD",text,re.I):
+    tags+="#verräterpartei #spd "
 
   if re.search("Fnord",text):
     tags+="#fnord "
@@ -37,8 +37,8 @@ def add_tags(text):
   if re.search("klarer Fall von Notwehr",text,re.I):
     tags+="#klarerfallvonnotwehr "
 
-  if re.search("ehemaliges Nachrichtenmagazin",text,re.I) or re.search("ehemalige Nachrichtenmagazin",text,re.I) or re.search("ehemaligen Nachrichtenmagazin",text,re.I) :
-    tags+="#ehemaligesNachrichtenmagazin "
+  if re.search("ehemaliges Nachrichtenmagazin",text,re.I) or re.search("ehemalige Nachrichtenmagazin",text,re.I) or re.search("ehemaligen Nachrichtenmagazin",text,re.I) or re.search("SPON",text,re.I) or re.search("Spiegel.?Online",text,re.I) :
+    tags+="#ehemaligesNachrichtenmagazin #Spiegel "
 
   if re.search("keinerlei Gefahr für",text,re.I) or re.search("Gefahr für die Bevölkerung",text,re.I) or re.search("zu keinem Zeitpunkt eine Gefahr",text,re.I) or re.search("zu keinem Zeitpunkt irgendeine Gefahr",text,re.I):
     tags+="#zukeinemZeitpunktbestandGefahrfürdieBevölkerung "
@@ -46,6 +46,19 @@ def add_tags(text):
   if re.search("DAMIT konnte ja wohl NIEMAND rechnen",text,re.I) or re.search("damit konnte ja auch niemand rechnen",text,re.I) or re.search("damit konnte niemand rechnen",text,re.I) or re.search("Damit konnte auch NIEMAND rechnen",text,re.I):
     tags+="#damitkonnteniemandrechnen "
 
+  if re.search("([^ ])+\s+des Tages",text,re.I):
+    this_match = re.search("([^ ]+)\s+des Tages",text,re.I)
+    tags+="#"+this_match.group(1)+"destages "
+    
+  if re.search("old and busted",text,re.I):
+    tags+="#oldandbusted "
+    
+  if re.search("new hotness",text,re.I):
+    tags+="#newhotness "
+    
+  if re.search("Schlangenöl",text,re.I) or re.search("snakeoil",text,re.I):
+    tags+="#Schlangenöl #snakeoil "
+    
   # Politik
   if re.search("Verfassungsschutz",text,re.I):
     tags+="#verfassungsschutz "
@@ -56,8 +69,9 @@ def add_tags(text):
   if re.search("FDP",text):
     tags+="#fdp "
 
-  if re.search("SPD",text):
-    tags+="#spd "
+#  if re.search("SPD",text):
+#    tags+="#spd "
+#                                siehe Verräterpartei
 
   if re.search("CDU",text):
     tags+="#cdu "
@@ -70,6 +84,15 @@ def add_tags(text):
 
   if re.search("Wulff",text):
     tags+="#wulff "
+
+  if re.search("Trump",text):
+    tags+="#trump "
+
+  if re.search("Merkel",text):
+    tags+="#merkel "
+
+  if re.search("Gauland",text):
+    tags+="#gauland "
 
   if re.search("ACTA",text,re.I):
     tags+="#acta "
@@ -120,6 +143,12 @@ def add_tags(text):
   if re.search("33c3",text,re.I):
     tags+="#33c3 "
 
+  if re.search("34c3",text,re.I):
+    tags+="#34c3 "
+
+  if re.search("35c3",text,re.I):
+    tags+="#35c3 "
+
   # Security
   if re.search("Malware",text,re.I):
     tags+="#malware "
@@ -149,6 +178,13 @@ def add_tags(text):
   if re.search("Microsoft",text,re.I):
     tags+="#microsoft "
 
+  if re.search("Spyware",text,re.I):
+    tags+="#spyware "
+
+  if re.search("GnuPG",text,re.I) or re.search("GPG",text,re.I) or re.search("PGP",text,re.I):
+    tags+="#gpg "
+
+
   # Sonstiges
   if re.search("FAZ",text):
     tags+="#faz "
@@ -156,5 +192,12 @@ def add_tags(text):
   if re.search(" taz",text):
     tags+="#taz "
 
+  if re.search("polizei",text,re.I):
+    tags+="#polizei "
+
+  if re.search("Schufa",text,re.I):
+    tags+="#schufa "
+
 
   return tags
+
